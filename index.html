@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <title>安怡的 29 岁生日会</title>
+  <style>
+    :root {
+      --paper: #ffffff;
+      --ink: #191919;
+      --muted: #6f6f6f;
+      --orange: #f47700;
+      --yellow: #ffbf1a;
+      --red: #ed1023;
+      --blue: #3aa8d8;
+      --purple: #7050a6;
+      --line: #eeeeee;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: #f4f4f4; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.6;
+    }
+
+    .wrap { width: min(100%, 520px); margin: 0 auto; padding-bottom: 28px; }
+    .hero { position: relative; overflow: hidden; padding: 26px 20px 0; background: #fff; }
+    .hero-copy { position: relative; z-index: 2; padding: 16px 12px 24px; }
+    .invite-badge { display: inline-block; padding: 7px 13px; color: #fff; background: var(--red); font-size: 20px; font-weight: 1000; transform: rotate(-3deg); box-shadow: 4px 4px 0 var(--yellow); }
+    .eyebrow { margin-top: 18px; color: var(--red); font-size: 13px; font-weight: 900; letter-spacing: .04em; }
+    .title-row { display: flex; align-items: center; gap: 10px; margin-top: 14px; }
+    .hero h1 { flex: 1; min-width: 0; margin: 0 0 4px; color: var(--orange); font-size: clamp(42px, 12vw, 70px); line-height: .92; letter-spacing: -.08em; font-weight: 1000; text-shadow: 4px 4px 0 #fff; }
+    .hero h1 em { display: inline-block; color: var(--red); font-style: normal; transform: rotate(-7deg); }
+    .subtitle { margin: 15px 0 0; color: #333; font-size: 14px; font-weight: 700; }
+    .poster { position: relative; min-height: 280px; overflow: hidden; background: #fff; }
+    .poster::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 46%; background-color: var(--orange); background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.08) 0 15px, transparent 15px 42px); }
+    .poster::after { content: ""; position: absolute; left: -8%; right: -8%; bottom: 0; height: 54%; background: repeating-conic-gradient(from 45deg, #fff 0 25%, var(--red) 0 50%) 0 0 / 78px 78px; border-top: 10px solid #fff; }
+    .poster-word { position: absolute; z-index: 2; top: 30px; left: 22px; color: #fff; font-size: 42px; line-height: 1; font-weight: 1000; letter-spacing: -.08em; text-shadow: 4px 4px 0 var(--red); transform: rotate(-3deg); }
+    .poster-word small { display: block; margin: 8px 0 0 5px; color: var(--yellow); font-size: 16px; letter-spacing: .12em; text-shadow: none; }
+    .avatar-frame { flex: 0 0 clamp(176px, 45vw, 210px); width: clamp(176px, 45vw, 210px); height: clamp(176px, 45vw, 210px); overflow: hidden; border: 6px solid #fff; border-radius: 50%; background: #fff; transform: rotate(4deg); box-shadow: 6px 6px 0 var(--red); }
+    .avatar { display: block; width: 100%; height: 100%; object-fit: contain; }
+    .sun { position: absolute; z-index: 1; top: 58px; right: 25px; width: 54px; height: 54px; border: 7px solid var(--yellow); border-radius: 50%; box-shadow: 0 0 0 4px rgba(255,255,255,.35); }
+    .star { position: absolute; z-index: 2; right: 32%; top: 110px; color: var(--yellow); font-size: 34px; transform: rotate(18deg); }
+    .blob { position: absolute; z-index: 2; bottom: 16px; width: 120px; height: 100px; border-radius: 52% 48% 45% 55%; }
+    .blob.one { left: 16%; background: var(--purple); transform: rotate(-12deg); }
+    .blob.two { right: 12%; background: var(--yellow); transform: rotate(12deg); }
+    .blob::before, .blob::after { content: ""; position: absolute; top: 26px; width: 14px; height: 20px; border-radius: 50%; background: #191919; }
+    .blob::before { left: 34px; }
+    .blob::after { right: 34px; }
+
+    .date-card { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; margin: 22px 20px; padding: 16px 18px; border: 2px solid var(--ink); background: #fff; box-shadow: 6px 6px 0 var(--yellow); }
+    .date-card strong { display: block; font-size: 23px; line-height: 1.1; }
+    .date-card span { display: block; margin-top: 5px; color: var(--muted); font-size: 12px; }
+    .date-number { color: var(--red); font-size: 52px; line-height: .8; font-weight: 1000; }
+
+    .section-label { display: flex; align-items: center; gap: 10px; margin: 28px 20px 11px; color: var(--red); font-size: 12px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
+    .section-label::after { content: ""; height: 2px; flex: 1; background: var(--red); }
+    .scene { position: relative; overflow: hidden; margin: 12px 20px; padding: 20px; border: 2px solid var(--ink); }
+    .scene.mcd { background: var(--yellow); }
+    .scene.bar { background: var(--blue); }
+    .scene-top { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
+    .scene h2 { margin: 0; font-size: 27px; line-height: 1.04; font-weight: 1000; letter-spacing: -.06em; }
+    .scene .time { padding: 5px 7px; border: 2px solid var(--ink); background: #fff; font-size: 12px; font-weight: 900; white-space: nowrap; }
+    .scene p { position: relative; z-index: 1; margin: 15px 0 0; max-width: 365px; color: rgba(25,25,25,.78); font-size: 13px; font-weight: 650; }
+    .scene .venue { position: relative; z-index: 1; display: inline-block; margin-top: 17px; padding: 6px 10px; background: #fff; font-size: 12px; font-weight: 800; }
+    .scene::after { content: "✦"; position: absolute; right: 15px; bottom: 9px; color: var(--red); font-size: 30px; transform: rotate(18deg); }
+
+    .detail-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin: 14px 20px 0; }
+    .detail { padding: 13px; border: 1.5px solid var(--ink); background: #ffd486; }
+    .detail:nth-child(2) { background: #ffdbe0; }
+    .detail:nth-child(3) { background: #e5dafa; }
+    .detail:nth-child(4) { background: #bde6f5; }
+    .detail b { display: block; margin-bottom: 4px; font-size: 17px; font-weight: 900; }
+    .detail span { color: var(--muted); font-size: 11px; }
+
+    .camera { margin: 22px 20px; padding: 18px; border: 2px solid var(--ink); background: var(--red); color: #fff; }
+    .camera h3 { margin: 0 0 6px; font-size: 22px; font-weight: 1000; }
+    .camera p { margin: 0; color: rgba(255,255,255,.9); font-size: 13px; }
+
+    .note { margin: 20px; padding: 13px 15px; border-left: 5px solid var(--orange); background: #fff8df; color: var(--muted); font-size: 12px; }
+    .closing { margin: 24px 20px 0; color: var(--red); text-align: center; font-size: 15px; font-weight: 900; }
+    .rsvp { display: block; width: calc(100% - 40px); margin: 25px 20px 8px; padding: 15px 18px; border: 0; border-radius: 999px; color: var(--ink); background: var(--yellow); font: inherit; font-size: 18px; font-weight: 1000; box-shadow: 0 4px 0 #e69c00; cursor: pointer; }
+    .rsvp:active { transform: translateY(2px); box-shadow: 0 2px 0 #e69c00; }
+    .footer { padding: 16px 20px 30px; color: var(--muted); text-align: center; font-size: 14px; font-weight: 700; }
+    .small { font-size: 11px; font-weight: 500; }
+    @media (max-width: 360px) { .hero h1 { font-size: 36px; } .poster-word { font-size: 34px; } .poster-word small { font-size: 12px; } .avatar-frame { flex-basis: 132px; width: 132px; height: 132px; } }
+    @media (min-width: 520px) { body { background: #f4f4f4; } .wrap { background: #fff; } }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="hero">
+      <div class="hero-copy"><div class="invite-badge">你被邀请了！</div><div class="eyebrow">安怡的29岁生日 · ANYI'S 29TH BIRTHDAY</div><div class="title-row"><h1>永远的<br><em>好朋友</em></h1><span class="avatar-frame"><img class="avatar" src="avatar.jpg" alt="安怡头像"></span></div><p class="subtitle">9月3日，先回到小时候，再一起长大喝酒</p></div>
+      <div class="poster" aria-label="生日派对主题海报"><span class="poster-word">生日快乐<small>LET'S PARTY!</small></span><span class="sun"></span><span class="star">✦</span><span class="blob one"></span><span class="blob two"></span></div>
+    </header>
+
+    <section class="date-card" aria-label="活动日期">
+      <div><strong>星期四 · 9月3日</strong></div>
+      <div class="date-number">03</div>
+    </section>
+
+    <div class="section-label">on the night · 当晚会发生</div>
+    <section class="detail-grid">
+      <div class="detail"><b>一起做手工</b><span>一起做汉堡</span></div>
+      <div class="detail"><b>和寿星合照</b><span>留下今晚的开心瞬间</span></div>
+      <div class="detail"><b>喝点小酒</b><span>和朋友一起干杯庆祝</span></div>
+      <div class="detail"><b>切蛋糕</b><span>在酒吧一起切蛋糕庆祝</span></div>
+    </section>
+
+    <div class="section-label">two scenes · 两场见</div>
+
+    <section class="scene mcd">
+      <div class="scene-top"><h2>第一场<br>麦当劳生日派对</h2><div class="time">18:30—20:00</div></div>
+      <p>特邀嘉宾：麦当劳粉红姐姐主持人，一起diy汉堡</p>
+      <span class="venue">📍 麦当劳（赛银国际店）</span>
+    </section>
+
+    <section class="scene bar">
+      <div class="scene-top"><h2>第二场<br>小酒吧全场我买单</h2><div class="time">20:30—23:00</div></div>
+      <p>喝酒、聊天、吃蛋糕，把这一年的故事和快乐都慢慢聊完，最后一起举杯祝我生日快乐！</p>
+      <span class="venue">📍 酒吧｜名称待补</span>
+    </section>
+
+    <section class="camera">
+      <h3>本次拍摄任务</h3>
+      <p>今年想了一个新的玩法，给寿星准备一句明年寿星看的话，明年30岁大寿的时候让我们一起再回看，哈哈哈</p>
+    </section>
+
+    <div class="note">小提醒：麦当当有粉红姐姐带我们跳舞，寿星是不用跳的；如果有点赶不上/有点害羞可以跳过，直接来喝酒吃蛋糕就好～</div>
+    <p class="closing">两场都来，或者来你喜欢的那一场，都欢迎。</p>
+
+    <button class="rsvp" id="rsvp">复制报名话术</button>
+    <footer class="footer">来见我吧，给我一个拥抱 💗<br><span class="small" id="status">期待和你一起过这个生日</span></footer>
+  </main>
+  <script>
+    const button = document.querySelector('#rsvp');
+    const status = document.querySelector('#status');
+    const text = '安怡，生日快乐！我来参加你的生日会～我参加：第一场麦当劳 / 第二场酒吧（请保留需要的一项）';
+    button.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(text);
+        status.textContent = '报名话术已复制，可以发给安怡啦';
+        button.textContent = '已复制 ✓';
+      } catch (e) {
+        status.textContent = '请直接回复安怡：我来参加哪一场';
+      }
+    });
+  </script>
+</body>
+</html>
