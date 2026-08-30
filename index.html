@@ -83,9 +83,25 @@
     .camera p { margin: 0; color: rgba(255,255,255,.9); font-size: 13px; }
 
     .note { margin: 20px; padding: 13px 15px; border-left: 5px solid var(--orange); background: #fff8df; color: var(--muted); font-size: 12px; }
+    .note + .note { margin-top: -8px; }
+    .note strong { display: block; margin-bottom: 5px; color: var(--ink); font-size: 13px; }
     .closing { margin: 24px 20px 0; color: var(--red); text-align: center; font-size: 15px; font-weight: 900; }
     .rsvp { display: block; width: calc(100% - 40px); margin: 25px 20px 8px; padding: 15px 18px; border: 0; border-radius: 999px; color: var(--ink); background: var(--yellow); font: inherit; font-size: 18px; font-weight: 1000; box-shadow: 0 4px 0 #e69c00; cursor: pointer; }
     .rsvp:active { transform: translateY(2px); box-shadow: 0 2px 0 #e69c00; }
+    .rsvp:disabled { opacity: .72; cursor: default; box-shadow: 0 2px 0 #e69c00; }
+    .secret-invite { margin: 24px 20px; padding: 20px; border: 2px solid var(--ink); background: linear-gradient(145deg, #fff0b7, #ffdbe0 56%, #e5dafa); }
+    .secret-invite[hidden] { display: none; }
+    .secret-kicker { color: var(--red); font-size: 11px; font-weight: 1000; letter-spacing: .14em; }
+    .secret-invite h2 { margin: 8px 0 3px; font-size: 26px; line-height: 1.1; font-weight: 1000; }
+    .secret-title { margin: 0; color: var(--red); font-size: 18px; font-weight: 900; }
+    .secret-tip { margin-top: 16px; padding: 12px 13px; border-left: 5px solid var(--red); background: rgba(255,255,255,.7); color: #4f4540; font-size: 12px; }
+    .secret-block { margin-top: 16px; padding: 14px; border: 1.5px solid var(--ink); background: rgba(255,255,255,.46); }
+    .secret-block h3 { margin: 0; color: var(--red); font-size: 16px; font-weight: 1000; }
+    .secret-block > p { margin: 6px 0 0; color: #5f5550; font-size: 12px; }
+    .trip-list { display: grid; gap: 10px; margin-top: 14px; }
+    .trip-day { padding: 13px; border: 1.5px solid var(--ink); background: rgba(255,255,255,.58); }
+    .trip-day b { display: block; margin-bottom: 4px; font-size: 17px; }
+    .trip-day p { margin: 0; color: #5f5550; font-size: 12px; }
     .footer { padding: 16px 20px 30px; color: var(--muted); text-align: center; font-size: 14px; font-weight: 700; }
     .small { font-size: 11px; font-weight: 500; }
     @media (max-width: 360px) { .hero h1 { font-size: 36px; } .poster-word { font-size: 34px; } .poster-word small { font-size: 12px; } .avatar-frame { flex-basis: 132px; width: 132px; height: 132px; } }
@@ -131,24 +147,68 @@
       <p>今年想了一个新的玩法，给寿星准备一句明年寿星看的话，明年30岁大寿的时候让我们一起再回看，哈哈哈</p>
     </section>
 
-    <div class="note">小提醒：麦当当有粉红姐姐带我们跳舞，寿星是不用跳的；如果有点赶不上/有点害羞可以跳过，直接来喝酒吃蛋糕就好～</div>
+    <div class="note"><strong>关于参加的小提示：</strong>麦当当有粉红姐姐带我们跳舞，寿星是不用跳的；如果有点赶不上/有点害羞可以跳过，直接来喝酒吃蛋糕就好～</div>
+    <div class="note"><strong>关于礼物的小提示：</strong>去年的礼物收到很开心，谢谢大家！不过有一些一年了还没用起来。所以完全欢迎大家环保主义，走生日礼物互免机制（一个小贺卡就够了，超级棒）如果想带而且还没有想好给我买什么礼物的话，一对耳环我觉得也很不错！因为我一定会天天戴～</div>
     <p class="closing">两场都来，或者来你喜欢的那一场，都欢迎。</p>
 
-    <button class="rsvp" id="rsvp">复制报名话术</button>
+    <button class="rsvp" id="rsvp">我来参加！</button>
+    <section class="secret-invite" id="secretInvite" hidden aria-live="polite">
+      <div class="secret-kicker">你又被邀请了！</div>
+      <h2>杭州招待办特邀活动</h2>
+      <p class="secret-title">周末盐官古城两天一晚游玩</p>
+      <div class="secret-tip"><strong>小提示：</strong>外地游客安总包住宿了，本地游客需要自费</div>
+      <div class="secret-block">
+        <h3>行程</h3>
+        <div class="trip-list">
+          <div class="trip-day"><b>Day 1（周六）· 北线古城烟火 + 夜游</b><p>抵达盐官、办理入住；游客中心看水幕；慢逛北线古城，晚上看夜灯光水幕、光影秀和实景剧本杀，再去古城吃晚餐。</p></div>
+          <div class="trip-day"><b>Day 2（周日）· 观潮 + 南线国保 + 大聚餐</b><p>酒店早餐后逛南线古迹，去观潮胜地看一线潮；中午乾隆御膳房大聚餐，下午茶、拼船或音乐之家博物馆三选一。</p></div>
+        </div>
+      </div>
+      <div class="secret-block">
+        <h3>住宿</h3>
+        <p>已提前预定盐官酒店。</p>
+      </div>
+      <div class="secret-block">
+        <h3>餐饮</h3>
+        <p>周日中午大家一起吃正儿八经饭，地点在乾隆御膳房。</p>
+      </div>
+    </section>
     <footer class="footer">来见我吧，给我一个拥抱 💗<br><span class="small" id="status">期待和你一起过这个生日</span></footer>
   </main>
   <script>
     const button = document.querySelector('#rsvp');
     const status = document.querySelector('#status');
+    const secretInvite = document.querySelector('#secretInvite');
     const text = '安怡，生日快乐！我来参加你的生日会～我参加：第一场麦当劳 / 第二场酒吧（请保留需要的一项）';
+    const tease = {
+      5: '确认还要继续点吗？',
+      6: '没东西了，还要点吗？',
+      7: '还真要继续点？',
+      8: '最后一下，确定吗？'
+    };
+    let clickCount = 0;
     button.addEventListener('click', async () => {
-      try {
-        await navigator.clipboard.writeText(text);
-        status.textContent = '报名话术已复制，可以发给安怡啦';
-        button.textContent = '已复制 ✓';
-      } catch (e) {
-        status.textContent = '请直接回复安怡：我来参加哪一场';
+      clickCount += 1;
+      if (clickCount < 5) {
+        try {
+          await navigator.clipboard.writeText(text);
+          status.textContent = '话术已复制，快发给安怡吧～';
+          button.textContent = '我来参加！';
+        } catch (e) {
+          status.textContent = '请直接回复安怡：我来参加哪一场';
+        }
+        return;
       }
+      if (clickCount < 9) {
+        status.textContent = tease[clickCount];
+        button.textContent = '我来参加！';
+        return;
+      }
+      secretInvite.hidden = false;
+      button.disabled = true;
+      button.textContent = '隐藏邀请已解锁 ✓';
+      status.textContent = '恭喜你，发现了新的邀请环节！';
+      secretInvite.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   </script>
 </body>
